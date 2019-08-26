@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
 	<meta charset="utf-8" />
-	<link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="../assets/img/favicon.png">
 	<link rel="icon" type="image/png" href="../assets/img/favicon.png">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	<title>Sign Up Page - Material Kit by Creative Tim</title>
+	<title>@yield('title', 'Pausa | Viaja Distinto')</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
 
@@ -32,18 +32,19 @@
 		            <span class="icon-bar"></span>
 		            <span class="icon-bar"></span>
         		</button>
-				<img href="{{url('/')}}" src="{{asset('/img/pausa-logo.png')}}" alt="img" class="navbar-brand">
+				<img  src="{{asset('/img/logo.png')}}" alt="img" class="navbar-brand">
+				<a class="navbar-brand" href="{{url('/')}}"></a>
         	</div>
 
         	<div class="collapse navbar-collapse" id="navigation-example">
         		<ul class="nav navbar-nav navbar-right">
                 @guest
                 <li class="nav-item">
-                <a class="nav-link" href="{{ route('login') }}">{{ __('Ingresar') }}</a>
+                <a class="btn btn-warning" href="{{ route('login') }}">{{ __('Ingresar') }}</a><p>
                 </li>
                 @if (Route::has('register'))
                 <li class="nav-item">
-                <a class="nav-link" href="{{ route('register') }}">{{ __('Registrate') }}</a>
+                <a class="btn btn-warning" href="{{ route('register') }}">{{ __('Registrate') }}</a>
                 </li>
                 @endif
                 @else
@@ -51,19 +52,24 @@
                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                 {{ Auth::user()->name }} <span class="caret"></span>
                 </a>
-
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{{ route('logout') }}"
+				<ul class="dropdown-menu" role="menu">
+					@if (auth()->user()->admin)
+					<li>
+						<a href="{{ url('/admin/products')}}">Gestionar Productos</a>
+					</li>
+					@endif
+					<li>
+						<a href="{{ route('logout') }}"
                 onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();">
-                {{ __('Desconectarse') }}
-                </a>
+                document.getElementById('logout-form').submit();">Desconectarse</a>
 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
                 </form>
-                </div>
-                </li>
+				</div>
+				</li>
+				</li>
+				</ul>
                 @endguest
 		   <!--          <li>
 		                <a href="https://twitter.com/CreativeTim" target="_blank" class="btn btn-simple btn-white btn-just-icon">
