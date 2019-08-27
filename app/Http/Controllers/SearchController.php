@@ -9,8 +9,8 @@ class SearchController extends Controller
 {
     public function show(Request $request)
     {
-        $quey = $request->query;
+        $query = $request->input('query');
         $products = Product::where('name','like',"%$query%")->get();
-        return view('search.show')->with(compact('products'));
+        return view('search.show')->with(compact('products','query'));
     }
 }

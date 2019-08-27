@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Pausa | Dashboard')
+@section('title', 'Pausa | Bùsqueda')
 
 @section('body-class', 'profile-page')
 
@@ -14,7 +14,8 @@
                     <div class="profile">
                         <div class="name">
                             <h3 class="title">Resultados de la busqueda</h3>
-                        </div>session('notification'))
+                        </div>
+                        @if (session('notification'))
                         <div class="alert alert-success">
                             {{ session('notification')}}
                         </div>
@@ -22,44 +23,21 @@
                     </div>
                 </div>
                 <div class="description text-center">
-                    <p>Se encontraron {{ $products->count()}} resultados para el termino {{$query}}</p>
+                    <p>Se encontraron {{ $products->count()}} resultados para el termino {{$query}}.</p>
                 </div>
-                <div class="text-center">
-                    <a href="{{ url('/reservas/'.$product->id) }}" class="btn btn-warning btn-round"> 
-                    <i class="material-icons">add</i> Reservar
-                    </a>
-                </div>
-
-
+                <div class="team text-center">
                 <div class="row">
-                    <div class="col-md-6 col-md-offset-3">
-                        <div class="profile-tabs">
-                            <div class="nav-align-center">
-                                <div class="tab-content gallery">
-                                    <div class="tab-pane active" id="studio">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                @foreach ($imagesLeft as $image)
-                                                <img src="{{$image->url}}" class="img-rounded" />
-                                                @endforeach
-                                            </div>
-                                            <div class="col-md-6">
-                                            @foreach ($imagesRight as $image)
-                                                <img src="{{$image->url}}" class="img-rounded" />
-                                                @endforeach
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Profile Tabs -->
+                    @foreach ($products as $product)
+                    <div class="col-md-4">
+                        <div class="team-player">
+                        <img src="/img/search.png" alt="ImagenLupa" class="img-cicle img-responsive img-raised ">
+                        <h4 class="title">
+                            <a href="{{ url('/products/'.$product->id) }}">{{ $product->name }}</a>
+                        </h4>
+                        <p class="description">{{ $product->description}}</p>
                     </div>
                 </div>
-
             </div>
         </div>
-    </div>
+    @endforeach
 @endsection
