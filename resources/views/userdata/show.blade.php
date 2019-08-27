@@ -79,9 +79,9 @@
                     </div>
                 </div>
                 <div class="col-sm-4 text-center">
-                    <button class="btn btn-success"">
+                    <a href="#" class="btn btn-success" data-toggle="modal" data-target="#myModal">
                         Reservar
-                    </button>
+                    </a>
                 </div>
             </form>
             <footer class="footer">
@@ -91,4 +91,24 @@
                     </div>
                 </div>
             </footer>
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h1 class="modal-title text-center" id="myModalLabel">¡Felicitaciones!</h1>
+                        </div>
+                        <div class="modal-body">
+                            <h2>
+                                Tu solicitud de reserva ha sido realizada con éxito.
+                            </h2>
+                            <h4 class="mb-2 text-center">
+                                * Te responderemos a tu correo electrónico en menos de 48 horas.
+                            </h4>
+                            <h4>Gracias por confiar en Pausa</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
             @endsection
