@@ -35,6 +35,15 @@
             <form method="post" action="{{ url('/admin/products/'.$product->id.'/edit') }}">
                 @csrf
                 <div class="col-sm-3">
+                <div class="alert alert-danger">
+                        <div class="container-fluid">
+                            <div class="alert-icon">
+                                <span><strong>Desde S/. {{ $product->price }}</strong></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
                     <input class="datepicker form-control" type="text" value="08/27/2019" />
                     Elige la Fecha
                     <!-- javascript -->
@@ -50,7 +59,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-sm-4 text-center">
                         <div class="form-group">
                             <ul class="nav nav-pills nav-pills-warning" role="tablist">
                                 <li>
@@ -86,17 +95,14 @@
                 <div class="col-sm-8">
                     <div class="col-sm-4"><button class="btn btn-success" href="{{ url('/login') }}">Continuar</button>
                     </div>
-                    <div class="col-sm-4"><a href="{{ url('/') }}" class="btn btn-default">Cancelar</a></div>
+                    <div class="col-sm-4"><a href="{{ url('/') }}" class="btn btn-success">Cancelar</a></div>
             </form>
         </div>
     </div>
 </div>
-</div>
 <footer class="footer">
     <div class="container">
-        <div class="copyright pull-center">
-            &copy; 2019 <i class="fa fa-heart heart"></i> Laboratoria
-        </div>
+        <div class="copyright pull-center">&copy; 2019 <i class="fa fa-heart heart"></i> Laboratoria</div>
     </div>
 </footer>
 @endsection

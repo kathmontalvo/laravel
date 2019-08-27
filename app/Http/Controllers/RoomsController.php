@@ -8,11 +8,15 @@ use Illuminate\Http\Request;
 
 class RoomsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    {
+        public function show($id){
+            $product = Product::find($id);
+            $names = $product->names;
+    
+            return view('reservas.show')->with(compact('product'));
+        }
+    }
+
     public function index()
     {
         //

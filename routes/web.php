@@ -6,8 +6,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/products/{id}', 'ProductController@show'); //
 Route::get('/reservas/{id}', 'ReservaController@show');
-Route::get('/search', 'searchController@show'); //
-//Route::get('/products/{id}/rooms', 'RoomsController@show');
+Route::get('/search', 'SearchController@show'); //
+Route::get('/products/{id}/rooms', 'RoomsController@show');
 Route::get('/rooms/{id}', 'RoomsController@show');
 
 

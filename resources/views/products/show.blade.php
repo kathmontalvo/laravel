@@ -30,7 +30,6 @@
                 </a>
             </div>
 
-
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
                     <div class="profile-tabs">
@@ -48,13 +47,8 @@
                                             <img src="{{$image->url}}" class="img-rounded" />
                                             @endforeach
                                         </div>
-                                        @foreach ($rooms as $room)
-                                            <h1>{{$room}}
-                                        @endforeach
                                     </div>
                                 </div>
-
-
                             </div>
                         </div>
                     </div>
