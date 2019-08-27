@@ -45,8 +45,13 @@
     <div class="container">
 
     <div class="section text-center">
-        <h2 class="title">Paquetes Disponibles</h2>
-
+        <h2 class="title">Visita nuestras categorias</h2>
+        <form class="form-inline" method="get" action="{{ url('/search')}}">
+            <input type="text" placeholder="¿Què producto buscas?" class="form-control" name="query">
+            <button class="btn btn-primary btn-just-icon" type="submit">
+                <i class="material-icons">search</i>
+            </button>
+        </form>
         <div class="team">
             <div class="row">
                 @foreach ($products as $product)
