@@ -49,7 +49,7 @@
                                             @endforeach
                                         </div>
                                         @foreach ($rooms as $room)
-                                            <h1>{{$room}}
+                                            <h1>{{$room}}</h1>
                                         @endforeach
                                     </div>
                                 </div>

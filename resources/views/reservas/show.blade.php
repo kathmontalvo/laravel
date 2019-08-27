@@ -75,6 +75,7 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="form-group col-sm-4">
                     <label class="control-label">Tipo de Habitaciòn</label>
                     <select class="form-control">
