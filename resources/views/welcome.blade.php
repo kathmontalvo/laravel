@@ -4,6 +4,26 @@
 
 @section('body-class', 'landing-page')
 
+@section('styles')
+    <style>
+        .team .row .col-md-4{
+            margin-bottom: 5em;
+        }
+        /* .row{
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display:        flex;
+            flex-wrap: wrap;
+        }
+        .row > [class*='col-'] {
+            display: flex;
+            flex-direction: column;
+        } */
+
+    </style>
+@endsection
+
 @section('content')
   <div class="header header-filter center-block" style="background-image: url('https://images.unsplash.com/photo-1528255915607-9012fda0f838?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1259&q=80');">
     <div class="container">
@@ -32,13 +52,13 @@
                 <div class="col-md-4">
                     <div class="team-player">
                         <img width="200" height="120" src="{{ $product->images()->first()->image }}" alt="Picture" class="img-raised">
-                        <h4 class="title">{{ $product->name }} <br />
+                        <h4 class="title">
+                            <a href="{{ url('/products/'.$product->id) }}">{{ $product->name }} </a>
+                            <br />
                             <small class="text-muted">{{ $product->category->name }}</small>
                         </h4>
                         <p class="description">{{ $product->description }}</p>
-                        <a href="#pablo" class="btn btn-simple btn-just-icon"><i class="fa fa-twitter"></i></a>
-                        <a href="#pablo" class="btn btn-simple btn-just-icon"><i class="fa fa-instagram"></i></a>
-                        <a href="#pablo" class="btn btn-simple btn-just-icon btn-default"><i class="fa fa-facebook-square"></i></a>
+                       
                     </div>
                 </div>
                 @endforeach
