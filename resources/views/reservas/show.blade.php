@@ -35,7 +35,7 @@
             <form method="post" action="{{ url('/admin/products/'.$product->id.'/edit') }}">
                 @csrf
                 <div class="col-sm-3">
-                <div class="alert alert-danger">
+                    <div class="alert alert-danger">
                         <div class="container-fluid">
                             <div class="alert-icon">
                                 <span><strong>Desde S/. {{ $product->price }}</strong></span>
@@ -44,8 +44,8 @@
                     </div>
                 </div>
                 <div class="col-sm-4">
-                    <input class="datepicker form-control" type="text" value="08/27/2019" />
-                    Elige la Fecha
+                    <label for="fecha">Elige tu fecha de viaje</label>
+                    <input id="fecha" class="datepicker form-control" type="text" value="08/27/2019" />
                     <!-- javascript -->
                     <script>
                     $('.datepicker').datepicker({
@@ -62,6 +62,10 @@
                     <div class="col-sm-4 text-center">
                         <div class="form-group">
                             <ul class="nav nav-pills nav-pills-warning" role="tablist">
+                                <!-- @foreach($product->rooms as $room)
+                                <h1>{{$room}}</h1>
+
+                                @endforeach -->
                                 <li>
                                     <a href="#dashboard" role="tab" data-toggle="tab">
                                         <i class="material-icons">hotel</i>
@@ -84,7 +88,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="form-group col-sm-4">
                     <label class="control-label">Tipo de Habitaciòn</label>
                     <select class="form-control">
@@ -94,7 +98,10 @@
                 </div>
                 <hr />
                 <div class="col-sm-8">
-                    <div class="col-sm-4"><button class="btn btn-success" href="{{ url('/login') }}">Continuar</button>
+                    <div class="col-sm-4">
+                        <button class="btn btn-success" href="{{ url('/userdata/'.$product->id) }}">
+                            Continuar
+                        </button>
                     </div>
                     <div class="col-sm-4"><a href="{{ url('/') }}" class="btn btn-success">Cancelar</a></div>
             </form>

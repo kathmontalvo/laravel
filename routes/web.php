@@ -9,6 +9,7 @@ Route::get('/products/{id}', 'ProductController@show'); //
 Route::get('/search', 'searchController@show'); //
 Route::get('/products/{id}/rooms', 'RoomsController@show');
 Route::get('/reservas/{id}', 'ReservaController@show');
+Route::get('/userdata/{id}', 'UserDataController@show');
 
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->namespace('Admin')->group(function () {
