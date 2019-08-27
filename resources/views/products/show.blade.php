@@ -12,9 +12,6 @@
             <div class="container">
                 <div class="row">
                     <div class="profile">
-                        <!-- <div class="avatar">
-                            <img src="{{ $product->images()->first()->image }}" alt="Circle Image" class="img">
-                        </div> -->
                         <div class="name">
                             <h3 class="title">{{ $product -> name }}</h3>
                             <h6>{{ $product -> category->name }}</h6>
@@ -25,9 +22,9 @@
                     <p> {{ $product -> long_description }}</p>
                 </div>
                 <div class="text-center">
-                    <button class="btn btn-warning btn-round"> 
+                    <a href="{{ url('/reservas/'.$product->id) }}" class="btn btn-warning btn-round"> 
                     <i class="material-icons">add</i> Reservar
-                    </button>
+                    </a>
                 </div>
 
 
